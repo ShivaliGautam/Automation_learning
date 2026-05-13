@@ -1,4 +1,5 @@
 import { Page, expect } from '@playwright/test';
+import { formData } from '../data/formData';
 
 export class FormPage {
 
@@ -32,36 +33,36 @@ export class FormPage {
 
   async fillForm() {
 
-    await this.page.locator(this.firstName).fill('Shivali');
+    await this.page.locator(this.firstName).fill(formData.firstName);
 
-    await this.page.locator(this.lastName).fill('Gautam');
+    await this.page.locator(this.lastName).fill(formData.lastName);
 
     await this.page.locator(this.email)
-      .fill('shivali@yopmail.com');
+      .fill(formData.email);
 
     await this.page.locator(this.phone)
-      .fill('9876543456');
+      .fill(formData.phone);
 
     await this.page.locator(this.dob)
-      .pressSequentially('01011998');
+      .pressSequentially(formData.dob);
 
     await this.page.locator(this.genderFemale).check();
 
     await this.page.locator(this.country).click();
 
     await this.page.getByRole('option', {
-      name: 'India'
+      name: formData.country
     }).click();
 
-    await this.page.locator(this.city).fill('Noida');
+    await this.page.locator(this.city).fill(formData.city);
 
     await this.page.locator(this.seleniumInterest).click();
 
     await this.page.locator(this.password)
-      .fill('Shivali@12345');
+      .fill(formData.password);
 
     await this.page.locator(this.confirmPassword)
-      .fill('Shivali@12345');
+      .fill(formData.confirmPassword);
 
     await this.page.locator(this.terms).click();
   }
