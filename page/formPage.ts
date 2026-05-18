@@ -27,6 +27,7 @@ export class FormPage {
     await this.page.getByTestId('practice-card-forms').click();
 
     await expect(
+      
       this.page.getByText('Form Automation Practice')
     ).toBeVisible();
   }
